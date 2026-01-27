@@ -1,0 +1,61 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .logo {
+    width: 150px;
+}
+
+.navbar-menu {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    color: #5c5c5c;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.navbar-right {
+    display: flex;
+    gap: 20px;
+}
+
+.navbar button {
+    background: transparent;
+    border: 1px solid tomato;
+    color: #495574;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background-color: tomato;
+        color: #fff;
+    }
+}
+
+.navbar-menu li.active {
+    color: tomato;
+    text-emphasis: underline;
+}
+
+.navbar-basket-icon {
+    position: relative;
+}
+
+.navbar-basket-icon .dot {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 10px;
+    height: 10px;
+    background-color: tomato;
+    border-radius: 50%;
+}
