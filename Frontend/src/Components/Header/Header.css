@@ -40,3 +40,31 @@
     background-color: white;
     cursor: pointer;
 }
+
+@media (max-width: 1050px){
+    .header{
+        height: 38vw;
+    }
+    .header-contents{
+        max-width: 45%;
+    }
+}
+
+@media (max-width: 900px){
+    .header{
+        height: 42vw;
+    }
+    .header-contents{
+        max-width: 55%;
+    }
+}
+
+@media (max-width: 750px){
+    .header{
+        height: 46vw;
+    }
+    .header-contents{
+        max-width: 65%;
+    }
+}
+    
