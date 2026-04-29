@@ -4,6 +4,7 @@ import cors from "cors";
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import connectDB from "./config/db.js";
+import foodRouter from "./Routes/foodRoute.js";
 
 //app config 
 
@@ -18,12 +19,18 @@ app.use(cors());
 //db_connection
 connectDB();
 
+
+//api ednpoint 
+app.use("/api/food",foodRouter)
+
+
+
 app.get("/",(req,res)=>{
     res.send("hii")
 })
 
 app.listen(port,()=>{
-    console.log(`server is running on port ${port}`)    
+    console.log(`server is running on port ${port}`); 
 }) 
 
 
