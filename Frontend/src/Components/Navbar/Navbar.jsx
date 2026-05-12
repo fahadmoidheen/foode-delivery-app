@@ -1,34 +1,38 @@
 import React, { useState } from 'react';
 import './Navbar.css';
+import { Link } from 'react-router-dom';
 import { assets } from '../../assets/assets'
+import { useContext } from 'react';
+import { StoreContext } from '../../Context/StoreContext';
 
-const Navbar = () => {
+const Navbar = ({setShowLogin}) => {
 
-  const [menu, setMenu] = useState("home")
+  const [menu, setMenu] = useState("home");
+  const { getTotalCartAmount} = useContext(StoreContext);
   return (
     <div className='navbar'>
       <img src={assets.logo} alt="logo" />
       <ul className='navbar-menu'>
-        <li onClick={() => setMenu("home")} className={menu === "home" ? "active" : ""}>
+        <Link to='/' onClick={() => setMenu("home")} className={menu === "home" ? "active" : ""}>
           Home
-        </li>
-        <li onClick={() => setMenu("menu")} className={menu === "menu" ? "active" : ""}>
+        </Link>
+        <a href='#menu' onClick={() => setMenu("menu")} className={menu === "menu" ? "active" : ""}>
           Menu
-        </li>
-        <li onClick={() => setMenu("mobile-app")} className={menu === "mobile-app" ? "active" : ""}>
+        </a>
+        <a href='#mobile-app' onClick={() => setMenu("mobile-app")} className={menu === "mobile-app" ? "active" : ""}>
           Mobile App
-        </li>
-        <li onClick={() => setMenu("contact")} className={menu === "contact" ? "active" : ""}>
+        </a>
+        <a href='#contact' onClick={() => setMenu("contact")} className={menu === "contact" ? "active" : ""}>
           Contact
-        </li>
+        </a>
       </ul>
       <div className="navbar-right">
         <img src={assets.search_icon} alt="search" />
-        <div className="navbar-basket-icon">
+        <Link to='/cart' className="navbar-basket-icon"> 
           <img src={assets.basket_icon} alt="basket" />
-          <div className="dot"></div>
-        </div>
-        <button>Sign In</button>
+          <div className={getTotalCartAmount()===0?"":"dot"}></div>
+        </Link>
+        <button onClick={() => setShowLogin(true)}> Sign In</button>
       </div>
     </div>
   )
